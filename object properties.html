@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Object Example</title>
+</head>
+<body>
+
+  <h2>JavaScript Object Example</h2>
+
+  <script>
+
+    let person = {
+      name: "Jagan",
+      age: 20,
+      sayHello: function() {
+        console.log("Hello, my name is " + this.name + " and I am " + this.age + " years old.");
+      }
+    };
+
+
+    console.log("Name:", person.name);
+    console.log("Age:", person.age);
+
+    person.name = "Nathan";
+    person.age = 21;
+    console.log("Modified Name:", person.name);
+    console.log("Modified Age:", person.age);
+
+    person.sayHello();
+  </script>
+
+</body>
+</html>
