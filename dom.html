@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Text and Style Example</title>
+</head>
+<body>
+
+  <h2 id="heading">Welcome to My Website</h2>
+  <p id="para">This is the original paragraph content.</p>
+
+  <button onclick="changeContent()">Click to Change Text & Style</button>
+
+  <script>
+    function changeContent() {
+
+      document.getElementById("heading").innerText = "Hello from JavaScript!";
+
+      document.getElementById("para").innerHTML = "The paragraph text has been updated using JavaScript.";
+
+      let p = document.getElementById("para");
+      p.style.color = "blue";
+      p.style.fontSize = "20px";
+
+      document.getElementById("heading").style.color = "green";
+    }
+  </script>
+
+</body>
+</html>
