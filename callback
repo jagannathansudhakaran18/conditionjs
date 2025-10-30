@@ -1,0 +1,62 @@
+// CALLBACK Example
+function fetchDataCallback(callback) {
+  console.log(" Fetching data (using Callback)...");
+  setTimeout(() => {
+    const data = { name: "Jagan", age: 22 };
+    callback(data);
+  }, 2000);
+}
+
+fetchDataCallback((result) => {
+  console.log(" Data received via Callback:", result);
+});
+
+//PROMISE Example
+function fetchDataPromise() {
+  console.log(" Fetching data (using Promise)...");
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let success = true; // change to false to test rejection
+      if (success) {
+        resolve({ name: "Nathan", age: 25 });
+      } else {
+        reject(" Promise rejected: Unable to fetch data");
+      }
+    }, 2000);
+  });
+}
+
+fetchDataPromise()
+  .then((data) => {
+    console.log(" Data received via Promise:", data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+//  FETCH Example (using a real API)
+console.log(" Fetching data from API...");
+fetch("https://jsonplaceholder.typicode.com/users/1")
+  .then((response) => response.json())
+  .then((user) => {
+    console.log(" Data fetched using Fetch API:", user);
+  })
+  .catch((error) => {
+    console.log("Fetch error:", error);
+  });
+
+//  ASYNC / AWAIT Example
+async function getUserData() {
+  console.log("Fetching data using async/await...");
+  try {
+    let response = await fetch("https://jsonplaceholder.typicode.com/users/2");
+    let user = await response.json();
+    console.log(" Data received via async/await:", user);
+  } catch (error) {
+    console.log(" Error:", error);
+  }
+}
+
+getUserData();
+
+console.log("🏁 Code execution continues (async tasks running in background)");
