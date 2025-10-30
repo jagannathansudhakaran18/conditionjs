@@ -1,0 +1,54 @@
+
+console.log(" Start - Synchronous code");
+
+console.log(" This runs immediately");
+
+setTimeout(() => {
+  console.log(" This runs after 2 seconds (Asynchronous using setTimeout)");
+}, 2000);
+
+console.log("This runs before setTimeout finishes");
+
+// Print a counter every 1 second
+let count = 1;
+let counter = setInterval(() => {
+  console.log("Counter: " + count);
+  count++;
+  if (count > 3) {
+    clearInterval(counter); // Stop after 3 counts
+  }
+}, 1000);
+
+// Callback Example
+function greetUser(name, callback) {
+  console.log(` Hello, ${name}`);
+  callback();
+}
+
+function sayBye() {
+  console.log("Goodbye after greeting!");
+}
+
+greetUser("Jagan", sayBye);
+
+// Promise Example
+let myPromise = new Promise((resolve, reject) => {
+  let success = true; // change to false to test reject
+
+  if (success) {
+    resolve(" Promise resolved successfully!");
+  } else {
+    reject(" Promise failed!");
+  }
+});
+
+// Handle with then() and catch()
+myPromise
+  .then((message) => {
+    console.log(message);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+console.log(" End of script (but async tasks still running...)");
