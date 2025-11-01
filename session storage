@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storage Example</title>
+</head>
+<body>
+  <h2>localStorage and sessionStorage Example</h2>
+
+  <h3>🌐 localStorage</h3>
+  <button onclick="saveLocal()">Save Local Data</button>
+  <button onclick="getLocal()">Get Local Data</button>
+  <button onclick="clearLocal()">Clear Local Data</button>
+  <p id="localOutput"></p>
+
+  <hr>
+
+  <h3>🕒 sessionStorage</h3>
+  <button onclick="saveSession()">Save Session Data</button>
+  <button onclick="getSession()">Get Session Data</button>
+  <button onclick="clearSession()">Clear Session Data</button>
+  <p id="sessionOutput"></p>
+
+  <script>
+    // ------- localStorage -------
+    function saveLocal() {
+      localStorage.setItem("username", "Jagan Nathan");
+      alert("Data saved to localStorage!");
+    }
+
+    function getLocal() {
+      const name = localStorage.getItem("username");
+      document.getElementById("localOutput").innerText =
+        name ? "Local Username: " + name : "No localStorage data found!";
+    }
+
+    function clearLocal() {
+      localStorage.removeItem("username");
+      document.getElementById("localOutput").innerText = "localStorage cleared!";
+    }
+
+    // ------- sessionStorage -------
+    function saveSession() {
+      sessionStorage.setItem("sessionUser", "StudentUser");
+      alert("Data saved to sessionStorage!");
+    }
